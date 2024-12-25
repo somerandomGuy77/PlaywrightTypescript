@@ -3,8 +3,8 @@ import HomePage from "../pages/homePage";
 import SearchPage from "../pages/searchPage";
 
 type pages = {
-    homePage : HomePage;
-    searchPage : SearchPage;
+    homePage: HomePage;
+    searchPage: SearchPage;
 }
 
 const testPages = baseTest.extend<pages>({
