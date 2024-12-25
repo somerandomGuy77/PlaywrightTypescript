@@ -1,6 +1,7 @@
 import { test } from '@playwright/test';
 import HomePage from '../pages/homePage';
 import SearchPage from '../pages/searchPage';
+import gameData from '../test-data/game-data.json'
 
 test.describe('Search', () => {
     test("Casino game search @smoke", async ({ page }) => {
@@ -17,9 +18,9 @@ test.describe('Search', () => {
             await searchPage.selectSearchTab("casino");
         });
 
-        await test.step(`Search for "Aviator" and validate that correct game is displayed (id=2466)`, async () => {
-            await searchPage.enterSearchValue("Aviator");
-            await searchPage.validateResult("2466");
+        await test.step(`Search for ${gameData.game} and validate that correct game is displayed (${gameData.testKeyId})`, async () => {
+            await searchPage.enterSearchValue(gameData.game);
+            await searchPage.validateResult(gameData.testKeyId);
         });
     });
 });
